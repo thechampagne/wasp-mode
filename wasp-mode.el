@@ -109,8 +109,8 @@
    `(,(concat "\\(" (mapconcat 'identity prisma-functions "\\|") "\\)[[:space:]]*(") . (1 font-lock-function-name-face))
    `(,(concat "\\<" (regexp-opt wasp-keywords t) "[[:space:]]*\\([a-zA-Z_0-9_-]*\\)\\>") . (2 font-lock-type-face))
    `("import[[:space:]]*{[[:space:]]*\\<\\([a-zA-Z_0-9-]*\\)\\>[[:space:]]*}[[:space:]]*from" . (1 font-lock-type-face))
-   `("import[[:space:]]*\\<\\([a-zA-Z0-9_-]*\\)\\>[[:space:]]*from" . (1 font-lock-type-face))
-   `("\\<\\([a-zA-Z0-9_-]*\\)\\>[[:space:]]*:" . (1 font-lock-variable-name-face))))
+   `("import[[:space:]]*\\<\\([a-zA-Z0-9_]*\\)\\>[[:space:]]*from" . (1 font-lock-type-face))
+   `("\\<\\([a-zA-Z0-9_]*\\)\\>[[:space:]]*:" . (1 font-lock-variable-name-face))))
 
 
 ;;;###autoload
