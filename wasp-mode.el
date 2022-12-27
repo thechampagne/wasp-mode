@@ -117,7 +117,9 @@
 (define-derived-mode wasp-mode prog-mode "Wasp"
   "A major mode for the Wasp programming language."
   :syntax-table wasp-mode-syntax-table
-  (setq-local font-lock-defaults '(wasp-font-lock-keywords)))
+  (setq-local font-lock-defaults '(wasp-font-lock-keywords))
+  (setq-local comment-start "// ")
+  (setq-local comment-end ""))
 
 ;;;###autoload
 (add-to-list 'auto-mode-alist '("\\.wasp\\'" . wasp-mode))
