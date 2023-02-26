@@ -78,35 +78,35 @@
 (defconst wasp-constants
   '("true" "false"))
 
-(defconst prisma-attributes
+(defconst wasp-prisma-attributes
   `("id" "map" "default" "relation"
     "unique" "ignore"))
 
-(defconst prisma-attributes-2
+(defconst wasp-prisma-attributes-2
   `("id" "map" "unique" "ignore"
     "index" "fulltext"))
 
-(defconst prisma-functions
+(defconst wasp-prisma-functions
   `("autoincrement" "cuid" "uuid" "now" "env"
     "dbgenerated"))
 
-(defconst prisma-types
+(defconst wasp-prisma-types
   `("Int" "Stwasp" "Boolean" "DateTime" "Float" "Decimal" "Json"))
 
-(defconst prisma-constants
+(defconst wasp-prisma-constants
   `( ;; true, false
     "null"))
 
 (defconst wasp-font-lock-keywords
   (list
-   `(,(regexp-opt prisma-constants 'symbols) . font-lock-constant-face)
+   `(,(regexp-opt wasp-prisma-constants 'symbols) . font-lock-constant-face)
    `(,(regexp-opt wasp-constants 'symbols) . font-lock-constant-face)
    `(,(regexp-opt wasp-keywords 'symbols) . font-lock-keyword-face)
    `(,(regexp-opt wasp-builtins 'symbols) . font-lock-builtin-face)
-   `(,(regexp-opt prisma-types 'symbols) . font-lock-type-face)
-   `(,(concat "\\(@@" (mapconcat 'identity prisma-attributes-2 "\\|@@") "\\)") . font-lock-preprocessor-face)
-   `(,(concat "\\(@" (mapconcat 'identity prisma-attributes "\\|@") "\\)") . font-lock-preprocessor-face)
-   `(,(concat "\\(" (mapconcat 'identity prisma-functions "\\|") "\\)[[:space:]]*(") . (1 font-lock-function-name-face))
+   `(,(regexp-opt wasp-prisma-types 'symbols) . font-lock-type-face)
+   `(,(concat "\\(@@" (mapconcat #'identity wasp-prisma-attributes-2 "\\|@@") "\\)") . font-lock-preprocessor-face)
+   `(,(concat "\\(@" (mapconcat #'identity wasp-prisma-attributes "\\|@") "\\)") . font-lock-preprocessor-face)
+   `(,(concat "\\(" (mapconcat #'identity wasp-prisma-functions "\\|") "\\)[[:space:]]*(") . (1 font-lock-function-name-face))
    `(,(concat "\\<" (regexp-opt wasp-keywords t) "[[:space:]]*\\([a-zA-Z_0-9_-]*\\)\\>") . (2 font-lock-type-face))
    `("import[[:space:]]*{[[:space:]]*\\<\\([a-zA-Z_0-9-]*\\)\\>[[:space:]]*}[[:space:]]*from" . (1 font-lock-type-face))
    `("import[[:space:]]*\\<\\([a-zA-Z0-9_]*\\)\\>[[:space:]]*from" . (1 font-lock-type-face))
