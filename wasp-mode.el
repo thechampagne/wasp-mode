@@ -91,7 +91,7 @@
     "dbgenerated"))
 
 (defconst wasp-prisma-types
-  `("Int" "Stwasp" "Boolean" "DateTime" "Float" "Decimal" "Json"))
+  `("Int" "String" "Boolean" "DateTime" "Float" "Decimal" "Json"))
 
 (defconst wasp-prisma-constants
   `( ;; true, false
